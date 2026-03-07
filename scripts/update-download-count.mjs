@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const PLUGINS_FILE = resolve(ROOT, 'plugins.v4.json');
-const DOWNLOADS_FILE = resolve(ROOT, 'downloads.json');
+const DOWNLOADS_FILE = resolve(ROOT, 'plugin-release-data.json');
 
 const GITHUB_API_BASE = 'https://api.github.com';
 const CONCURRENCY = 5;            // 并发请求数
@@ -137,14 +137,14 @@ async function main() {
   for (const res of results) {
     if (res.error) {
       logError(`[${res.id}] 获取失败: ${res.error}，设为 0`);
-      downloadsMap[res.id] = 0;
+      downloadsMap[res.id] = { downloads: 0 };
     } else {
-      downloadsMap[res.id] = res.count;
+      downloadsMap[res.id] = { downloads: res.count };
       logOk(`[${res.id}] 下载量: ${res.count}`);
     }
   }
 
-  // 写入 downloads.json
+  // 写入 plugin-release-data.json
   try {
     writeFileSync(DOWNLOADS_FILE, JSON.stringify(downloadsMap, null, 2), 'utf-8');
     log(`✅ 精简下载量文件已写入: ${DOWNLOADS_FILE}`);

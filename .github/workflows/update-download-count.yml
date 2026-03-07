@@ -28,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 提交更改到 store 分支（只保留 downloads.json）
+      - name: 提交数据更改到 store 分支
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -42,15 +42,15 @@ jobs:
 
           git rm -rf --ignore-unmatch .
 
-          if [ ! -f downloads.json ]; then
-            echo "❌ downloads.json 不存在，无法提交"
+          if [ ! -f plugin-release-data.json ]; then
+            echo "❌ plugin-release-data.json 不存在，无法提交"
             exit 1
           fi
 
-          git add downloads.json
+          git add plugin-release-data.json
 
           if git diff --cached --quiet; then
-            echo "⚠️ downloads.json 无变化，跳过提交"
+            echo "⚠️ plugin-release-data.json 无变化，跳过提交"
           else
             git commit -m "chore: 更新插件下载量"
             echo "✅ 提交成功，准备强制推送 store 分支"
