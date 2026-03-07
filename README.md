@@ -1,6 +1,10 @@
-# napcat-plugin-index
+# napcat-plugin-community-index
 
-NapCat 插件索引仓库
+NapCat 社区插件索引仓库
+
+
+## ⚠️ 注意
+社区插件索引库收录的所有插件均由第三方开发者提供，本仓库仅提供索引和基本的审核。我们**无法确保插件的质量和安全**，您在安装插件时建议**自行对插件源码进行二次审核**。
 
 > **⚠️ 重要说明：本仓库已采用全自动审核机制。请使用 [napcat-plugin-template](https://github.com/NapNeko/napcat-plugin-template) 模板仓库开发插件，模板内置的 CI 会自动处理插件索引的提交与更新。手动提交的 PR 将不再被合入。**
 >
@@ -14,7 +18,9 @@ NapCat 插件索引仓库
 
 使用 [napcat-plugin-template](https://github.com/AQiaoYo/napcat-plugin-template) 模板开发插件，内置 CI 会在你发布 Release 时**自动向本仓库提交 PR**，经 CI 全自动审核通过后由维护者合并，无需手动操作。
 
-推送到此仓库需要修改工作流（文件：'.github/workflows/update-index.ym'l）目标索引仓库地址为当前仓库
+推送到此仓库需要修改工作流（文件：`.github/workflows/update-index.yml`）中的目标索引仓库地址为当前仓库
+
+> 温馨提示：模板中的napcat-plugin-template记得全局替换成你插件名字
 
 **流程：**
 

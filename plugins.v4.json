@@ -213,7 +213,7 @@
     {
       "id": "napcat-plugin-openclaw",
       "name": "OpenClaw AI Channel",
-      "version": "v1.4.0",
+      "version": "1.4.0",
       "description": "将 QQ 变为 OpenClaw AI 助手通道，支持私聊/群聊、斜杠命令、输入状态",
       "author": "CharTyr",
       "homepage": "https://github.com/CharTyr/napcat-plugin-openclaw",
